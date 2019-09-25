@@ -14,6 +14,12 @@
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- Flatpickr -->
     <link rel="stylesheet" type="text/css" href="plugins/flatpickr/flatpickr.min.css">
+    <!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="plugins/fullcalendar-4.3.1/packages/core/main.min.css">
+    <link rel="stylesheet" type="text/css" href="plugins/fullcalendar-4.3.1/packages/daygrid/main.min.css">
+    <link rel="stylesheet" type="text/css" href="plugins/fullcalendar-4.3.1/packages/list/main.min.css">
+    <link rel="stylesheet" type="text/css" href="plugins/fullcalendar-4.3.1/packages/timegrid/main.min.css">
+    <link rel="stylesheet" type="text/css" href="plugins/fullcalendar-4.3.1/packages/bootstrap/main.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -308,11 +314,12 @@
                     <!-- /.row -->
                     <!-- Main row -->
                     <div class="row">
+                        <!-- To do list start -->
                         <div class="col-sm-12 col-md-6">
                             <div class="card">
-                                <div class="card-header ui-sortable-handle" style="cursor: move;">
+                                <div class="card-header ui-sortable-handle">
                                     <h3 class="card-title">
-                                        <i class="ion ion-clipboard mr-1"></i>
+                                        <i class="fas fa-list-alt"></i>
                                         To Do List
                                     </h3>
                                     <div class="card-tools">
@@ -325,7 +332,6 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <!-- /.card-header -->
                                 <div class="card-body">
                                     <ul class="todo-list ui-sortable" id="ToDoList" data-widget="todo-list">
                                         <li>
@@ -436,6 +442,22 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- To do list end -->
+                        <!-- Calendar start -->
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header ui-sortable-handle">
+                                    <h3 class="card-title">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        Calendar
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <div id='calendar'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Calendar end -->
                     </div>
                     <!-- /.row (main row) -->
                 </div><!-- /.container-fluid -->
@@ -452,32 +474,97 @@
     </div>
 
     <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/jquery/jquery.min.js" type="text/javascript"></script>
     <!-- jQuery UI 1.11.4 -->
-    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
+    <script type="text/javascript">
         $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
     <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.js"></script>
+    <script src="dist/js/adminlte.js" type="text/javascript"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="dist/js/pages/dashboard.js"></script>
+    <script src="dist/js/pages/dashboard.js" type="text/javascript"></script>
     <script src="plugins/flatpickr/flatpickr.min.js" type="text/javascript"></script>
     <script src="plugins/icheck/icheck.min.js" type="text/javascript"></script>
+    <!-- Fullcalendar -->
+    <script src="plugins/fullcalendar-4.3.1/packages/moment/main.min.js" type="text/javascript"></script>
+    <script src="plugins/fullcalendar-4.3.1/packages/core/main.min.js" type="text/javascript"></script>
+    <script src="plugins/fullcalendar-4.3.1/packages/daygrid/main.min.js" type="text/javascript"></script>
+    <script src="plugins/fullcalendar-4.3.1/packages/list/main.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-        $("#ToDoList").TodoList({
-            onCheck: function(checkbox) {
-                // Do something when the checkbox is checked
-                alert("checked");
-            },
-            onUnCheck: function(checkbox) {
-                // Do something after the checkbox has been unchecked
-            }
-        })
+        // Calendar start
+        var date = new Date();
+        var d = date.getDate(),
+            m = date.getMonth(),
+            y = date.getFullYear();
+        var calendarEl = document.getElementById('calendar');
 
+
+
+        /*$('#calendar').fullCalendar({
+            plugins: [ 'dayGrid', 'list' ],
+            eventLimit: true, // allow "more" link when too many events
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            handleWindowResize: true,
+            events: [{
+                title: 'Client meeting',
+                start: new Date(y, m, 1, 12, 30),
+                url: 'client-profile.html'
+            }],
+        });*/
+
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            plugins: [ 'dayGrid', 'list' ],
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,listWeek'
+            },
+            handleWindowResize: true,
+            /*eventSources: [
+                // your event source
+                {
+                    url: '/myfeed.php', // use the `url` property
+                    color: 'yellow',    // an option!
+                    textColor: 'black'  // an option!
+                }
+                // any other sources...
+            ],*/
+            events: [
+                {
+                    title: 'Client meeting',
+                    start: new Date(y, m, 1, 12, 30),
+                    url: 'client-profile.html'
+                },
+                {
+                    title: 'Client meeting',
+                    start: new Date(y, m, d, 21, 30)
+                }
+            ],
+            /*windowResize: function(view) {
+                if ($(window).width() < 514){
+                    alert("Windows");
+                    $('#calendar').fullCalendar( 'changeView', 'listmonth' );
+                } else {
+                    $('#calendar').fullCalendar( 'changeView', 'month' );
+                }
+            }
+            windowResize: function(view) {
+                alert('The calendar has adjusted to a window resize');
+            }*/
+        });
+        calendar.render();
+        // Calendar end
+
+        // To do list start
         $('#ToDoList').on('change', 'input[type=checkbox]', function() {
             var id = $(this).val(); // this gives me null
             if (id != null) {
@@ -508,6 +595,7 @@
             $("#EditToDoDiv").hide();
             $("#ToDoContentDiv").show();
         });
+        //To do list end
     </script>
 </body>
 </html>
