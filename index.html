@@ -432,11 +432,14 @@
                                                 <div class="col-sm-12 col-md-6">
                                                     <input type="text" name="Deadline" id="Deadline" class="form-control" placeholder="Deadline (optional)">
                                                 </div>
+                                                <div class="col-sm-12" style="margin-top: 10px;">
+                                                    <button type="button" id="AddToDo" class="btn btn-info"> Add</button>
+                                                    <button type="button" id="CancelBtn" class="btn btn-default"> Cancel</button>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12" style="margin-top: 10px;">
+                                        <div class="col-sm-12">
                                             <button type="button" id="AddNewToDoBtn" class="btn btn-info"><i class="fas fa-plus"></i> Add item</button>
-                                            <button type="button" id="CancelBtn" class="btn btn-info" style="display: none"> Cancel</button>
                                         </div>
                                     </div>
                                 </div>
@@ -574,12 +577,12 @@
         });
 
         $("#AddNewToDoBtn").on('click', function(){
+            $(this).hide();
             $("#AddToDoForm").show();
-            $("#CancelBtn").show();
         });
         $("#CancelBtn").on('click', function(){
             $("#AddToDoForm").hide();
-            $(this).hide();
+            $("#AddNewToDoBtn").show();
         });
         $("#Deadline").flatpickr({
             enableTime: true
