@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Admin Dashboard | Creative</title>
+    <title>Client Profile - Tiger Nixon | Creative</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- Flatpickr -->
     <link rel="stylesheet" type="text/css" href="plugins/flatpickr/flatpickr.min.css">
+    <!-- Jquery confirm -->
+    <link rel="stylesheet" type="text/css" href="plugins/jquery-confirm/jquery-confirm.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -145,7 +147,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="index.html" class="nav-link active">
+                            <a href="index.html" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -153,7 +155,7 @@
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Clients
@@ -168,7 +170,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="add-client.html" class="nav-link">
+                                    <a href="add-client.html" class="nav-link active">
                                         <i class="fas fa-user-plus nav-icon"></i>
                                         <p>Add client</p>
                                     </a>
@@ -185,13 +187,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="view-clients.html" class="nav-link">
+                                    <a href="view-members.html" class="nav-link">
                                         <i class="fas fa-user-cog nav-icon"></i>
                                         <p>View members</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="add-client.html" class="nav-link">
+                                    <a href="add-member.html" class="nav-link">
                                         <i class="fas fa-user-plus nav-icon"></i>
                                         <p>Add member</p>
                                     </a>
@@ -236,7 +238,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Dashboard</h1>
+                            <h1 class="m-0 text-dark">Client profile</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -246,196 +248,79 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <!-- Small boxes (Stat box) -->
-                    <div class="row">
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-info">
-                                <div class="inner">
-                                    <h3>150</h3>
-                                    <p>New Orders</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-bag"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-success">
-                                <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
-                                    <p>Bounce Rate</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-warning">
-                                <div class="inner">
-                                    <h3>44</h3>
-                                    <p>User Registrations</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-person-add"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-danger">
-                                <div class="inner">
-                                    <h3>65</h3>
-                                    <p>Unique Visitors</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                    </div>
-                    <!-- /.row -->
                     <!-- Main row -->
                     <div class="row">
-                        <div class="col-sm-12 col-md-6">
-                            <div class="card">
-                                <div class="card-header ui-sortable-handle" style="cursor: move;">
-                                    <h3 class="card-title">
-                                        <i class="ion ion-clipboard mr-1"></i>
-                                        To Do List
-                                    </h3>
-                                    <div class="card-tools">
-                                        <ul class="pagination pagination-sm">
-                                            <li class="page-item"><a href="#" class="page-link">«</a></li>
-                                            <li class="page-item"><a href="#" class="page-link">1</a></li>
-                                            <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                            <li class="page-item"><a href="#" class="page-link">3</a></li>
-                                            <li class="page-item"><a href="#" class="page-link">»</a></li>
-                                        </ul>
-                                    </div>
+                        <div class="col-sm-12">
+                            <div class="card card-info">
+                                <div class="card-header">
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <ul class="todo-list ui-sortable" id="ToDoList" data-widget="todo-list">
-                                        <li>
-                                            <!-- drag handle -->
-                                            <div id="ToDoContentDiv">
-                                                <span class="handle ui-sortable-handle">
-                                                    <i class="fas fa-ellipsis-v"></i>
-                                                    <i class="fas fa-ellipsis-v"></i>
-                                                </span>
-                                                <!-- checkbox -->
-                                                <div class="icheck-primary d-inline ml-2">
-                                                    <input type="checkbox" value="Check1" name="todo1" id="todoCheck1">
-                                                    <label for="todoCheck1"></label>
-                                                </div>
-                                                <!-- todo text -->
-                                                <span class="text">Design a nice theme</span>
-                                                <!-- Emphasis label -->
-                                                <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
-                                                <!-- General tools such as edit or delete-->
-                                                <div class="tools">
-                                                    <i class="fas fa-edit" id="EditToDo"></i>
-                                                    <i class="fas fa-trash" id="DeleteToDo"></i>
-                                                </div>
-                                            </div>
-                                            <!-- To do edit form -->
-                                            <div class="row" id="EditToDoDiv" style="display: none">
-                                                <div class="col-sm-5">
-                                                    <input type="text" name="ToDo1" id="ToDo1" value="Design a nice theme" style="font-size: 10pt !important; width: 100%; border-radius: 3px; border: 1px solid rgba(0, 0, 0, 0.4); padding-left: 5px; padding-right: 5px;">
-                                                </div>
-                                                <div class="col-sm-5">
-                                                    <input type="text" name="Deadline1" id="Deadline1" value="2019-09-25 17:00" style="font-size: 10pt !important; width: 100%; border-radius: 3px; border: 1px solid rgba(0, 0, 0, 0.4); padding-left: 5px; padding-right: 5px;">
-                                                </div>
-                                                <div class="col-sm-2">
-                                                    <div class="">
-                                                        <i class="fas fa-save" id="SaveToDo" style="color: #28a745; float: right; margin-top: 5px;"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="handle ui-sortable-handle">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </span>
-                                            <div class="icheck-primary d-inline ml-2">
-                                                <input type="checkbox" value="" name="todo2" id="todoCheck2">
-                                                <label for="todoCheck2"></label>
-                                            </div>
-                                            <span class="text">Make the theme responsive</span>
-                                            <small class="badge badge-info"><i class="far fa-clock"></i> 4 hours</small>
-                                            <div class="tools">
-                                                <i class="fas fa-edit"></i>
-                                                <i class="fas fa-trash"></i>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="handle ui-sortable-handle">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </span>
-                                            <div class="icheck-primary d-inline ml-2">
-                                                <input type="checkbox" value="" name="todo3" id="todoCheck3">
-                                                <label for="todoCheck3"></label>
-                                            </div>
-                                            <span class="text">Let theme shine like a star</span>
-                                            <small class="badge badge-warning"><i class="far fa-clock"></i> 1 day</small>
-                                            <div class="tools">
-                                                <i class="fas fa-edit"></i>
-                                                <i class="fas fa-trash"></i>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="handle ui-sortable-handle">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </span>
-                                            <div class="icheck-primary d-inline ml-2">
-                                                <input type="checkbox" value="" name="todo4" id="todoCheck4">
-                                                <label for="todoCheck4"></label>
-                                            </div>
-                                            <span class="text">Let theme shine like a star</span>
-                                            <small class="badge badge-success"><i class="far fa-clock"></i> 3 days</small>
-                                            <div class="tools">
-                                                <i class="fas fa-edit"></i>
-                                                <i class="fas fa-trash"></i>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- /.card-body -->
-                                <div class="card-footer clearfix">
                                     <div class="row">
-                                        <div class="col-sm-12">
-                                            <div id="AddToDoForm" class="row" style="display: none">
-                                                <div class="col-sm-12 col-md-6">
-                                                    <input type="text" name="WorkToDo" class="form-control" placeholder="Work to do">
-                                                </div>
-                                                <div class="col-sm-12 col-md-6">
-                                                    <input type="text" name="Deadline" id="Deadline" class="form-control" placeholder="Deadline (optional)">
-                                                </div>
+                                        <div class="col-md-12 col-lg-6">
+                                            <div class="row">
+                                                <p class="col-sm-4"><b>Name</b></p>
+                                                <p class="col-sm-8">Ashton Cox</p>
+                                            </div>
+                                            <div class="row">
+                                                <p class="col-sm-4"><b>Contact number</b></p>
+                                                <p class="col-sm-8">01777777888</p>
+                                            </div>
+                                            <div class="row">
+                                                <p class="col-sm-4"><b>Email</b></p>
+                                                <p class="col-sm-8">ashton@gmail.com</p>
+                                            </div>
+                                            <div class="row">
+                                                <p class="col-sm-4"><b>Hall</b></p>
+                                                <p class="col-sm-8">BAFWA Eagle Hall</p>
+                                            </div>
+                                            <div class="row">
+                                                <p class="col-sm-4"><b>Appointment</b></p>
+                                                <p class="col-sm-8">N/A</p>
+                                            </div>
+                                            <div class="row">
+                                                <p class="col-sm-4"><b>Contacted?</b></p>
+                                                <p class="col-sm-8">No</p>
+                                            </div>
+                                            <div class="row">
+                                                <p class="col-sm-4"><b>Date added</b></p>
+                                                <p class="col-sm-8">25-09-2019</p>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12" style="margin-top: 10px;">
-                                            <button type="button" id="AddNewToDoBtn" class="btn btn-info"><i class="fas fa-plus"></i> Add item</button>
-                                            <button type="button" id="CancelBtn" class="btn btn-info" style="display: none"> Cancel</button>
+                                        <div class="col-md-12 col-lg-6">
+                                            <div id="ActionsDiv">
+                                                <p><b>Actions</b></p>
+                                                <a href="javascript:void(0)" class="btn btn-success" id="AssignMemebrBtn">Assign a member to contact</a>
+                                                <a href="edit-client.html" class="btn btn-primary">Edit</a>
+                                                <a href="javascript:void(0)" class="btn btn-danger" id="DeleteBtn">Delete</a>
+                                            </div>
+                                            <form class="form-horizontal" id="MemberAssignment" style="display: none">
+                                                <div class="form-group">
+                                                    <b>Assign a member to contact</b>
+                                                    <select id="Member" class="form-control" required>
+                                                        <option value="0">--Select a member--</option>
+                                                        <option value="1">Member 1</option>
+                                                        <option value="2">Member 2</option>
+                                                        <option value="3">Member 3</option>
+                                                        <option value="4">Member 4</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <b>Set deadline</b>
+                                                    <input type="text" class="form-control" id="Deadline" placeholder="Set deadline" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-success">Assign</button>
+                                                    <a href="javascript:void(0)" class="btn btn-default" id="CancelBtn">Cancel</a>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- /.card-body -->
                             </div>
                         </div>
+                        <!-- /.col (main col) -->
                     </div>
                     <!-- /.row (main row) -->
                 </div><!-- /.container-fluid -->
@@ -457,56 +342,56 @@
     <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
-        $.widget.bridge('uibutton', $.ui.button)
+        $.widget.bridge('uibutton', $.ui.button);
     </script>
     <!-- Bootstrap 4 -->
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="dist/js/adminlte.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="dist/js/pages/dashboard.js"></script>
     <script src="plugins/flatpickr/flatpickr.min.js" type="text/javascript"></script>
-    <script src="plugins/icheck/icheck.min.js" type="text/javascript"></script>
+    <script src="plugins/jquery-confirm/jquery-confirm.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-        $("#ToDoList").TodoList({
-            onCheck: function(checkbox) {
-                // Do something when the checkbox is checked
-                alert("checked");
-            },
-            onUnCheck: function(checkbox) {
-                // Do something after the checkbox has been unchecked
-            }
-        })
-
-        $('#ToDoList').on('change', 'input[type=checkbox]', function() {
-            var id = $(this).val(); // this gives me null
-            if (id != null) {
-                //some ajax
-                alert(id)
-            }
+        $("#AssignMemebrBtn").on("click", function(){
+            $("#ActionsDiv").hide();
+            $("#MemberAssignment").show();
         });
-
-        $("#AddNewToDoBtn").on('click', function(){
-            $("#AddToDoForm").show();
-            $("#CancelBtn").show();
-        });
-        $("#CancelBtn").on('click', function(){
-            $("#AddToDoForm").hide();
-            $(this).hide();
+        $("#CancelBtn").on("click", function(){
+            $("#MemberAssignment").hide();
+            $("#ActionsDiv").show();
         });
         $("#Deadline").flatpickr({
             enableTime: true
         });
-        $("#Deadline1").flatpickr({
-            enableTime: true
-        });
-        $("#EditToDo").on('click', function(){
-            $("#EditToDoDiv").show();
-            $("#ToDoContentDiv").hide();
-        });
-        $("#SaveToDo").on('click', function(){
-            $("#EditToDoDiv").hide();
-            $("#ToDoContentDiv").show();
+        $("#DeleteBtn").on("click", function(){
+            $.confirm({
+                title: 'Deleting client Ashton Cox.',
+                type: 'red',
+                icon: 'fa fa-exclamation-circle',
+                buttons: {
+                    Yes: {
+                        btnClass: 'btn-red',
+                        action: function () {
+                            //some ajax
+                            $.confirm({
+                                title: 'Success',
+                                content: 'Deleted Ashton Cox successfully.',
+                                icon: 'fa fa-check',
+                                type: 'green',
+                                buttons: {
+                                    Ok: {
+                                        action: function () {
+                                            window.location.replace('view-clients.html');
+                                        }
+                                    }
+                                }
+                            });
+                        },
+                    },
+                    No: function () {
+
+                    }
+                }
+            });
         });
     </script>
 </body>
