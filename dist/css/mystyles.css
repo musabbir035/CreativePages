@@ -1,0 +1,36 @@
+.chat-contacts {
+    background: #343a40;
+    color: #ffffff;
+    position: absolute;
+    width: 100%;
+}
+
+.message-card{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.message-box-header, .message-box-header-right{
+    padding: 10px 25px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.message-box-header-right{
+    border-left: 1px solid rgba(0, 0, 0, .2);
+}
+
+.message-box-contacts{
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    border-right: 1px solid rgba(0, 0, 0, .2);
+}

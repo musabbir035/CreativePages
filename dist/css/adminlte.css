@@ -17288,8 +17288,7 @@ html.maximized-card {
 }
 
 .right .direct-chat-text {
-  margin-left: 0;
-  margin-right: 50px;
+  margin-right: 5px;
 }
 
 .right .direct-chat-text::after, .right .direct-chat-text::before {
