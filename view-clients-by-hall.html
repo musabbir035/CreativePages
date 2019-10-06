@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- iCheck -->
+    <!--<link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css"> -->
+    <link rel="stylesheet" href="plugins/icheck/skins/flat/red.css">
     <!-- datatable -->
     <link rel="stylesheet" type="text/css" href="plugins/datatables/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -328,11 +331,23 @@
                                                     By: <a href="member-profile.html">Tiger Nixon</a><br>
                                                     On: 25-09-19 05:21 pm
                                                     <hr>
-                                                    <a href="javascript:void(0)" class="btn btn-xs btn-primary" id="CommentBtn1" data-toggle="modal" data-target="#CommentForm">Comment</a>
+                                                    <a href="javascript:void(0)" class="btn btn-xs btn-primary" id="CommentBtn1" data-toggle="modal" data-target="#CommentForm">Add comment</a>
                                                 </td>
                                                 <td>
-                                                    Agreed<br>
-                                                    <a href="javascript:void(0)" class="btn btn-xs btn-info" id="EditBtn1">Edit</a>
+                                                    <div class="form-group">
+                                                        <div class="custom-control custom-radio" id="AgreedRadioDiv1">
+                                                            <input class="custom-control-input" type="radio" id="AgreedRadio1" name="Radio1" checked>
+                                                            <label for="AgreedRadio1" class="custom-control-label">Agreed</label>
+                                                        </div>
+                                                        <div class="custom-control custom-radio"  id="NotAgreedRadioDiv1" style="display: none">
+                                                            <input class="custom-control-input" type="radio" id="NotAgreedRadio1" name="Radio1">
+                                                            <label for="NotAgreedRadio1" class="custom-control-label">Not Agreed</label>
+                                                        </div>
+                                                        <div>
+                                                            <a href="javascript:void(0)" class="btn btn-xs btn-info" id="EditBtn1">Edit</a>
+                                                            <a href="javascript:void(0)" class="btn btn-xs btn-success" id="SaveBtn1" style="display: none;">Save</a>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -344,11 +359,23 @@
                                                     By: <a href="member-profile.html">Alexander Pierce</a><br>
                                                     On: 25-09-19 05:21 pm
                                                     <hr>
-                                                    <a href="javascript:void(0)" class="btn btn-xs btn-primary" id="CommentBtn2" data-toggle="modal" data-target="#CommentForm">Comment</a>
+                                                    <a href="javascript:void(0)" class="btn btn-xs btn-primary" id="CommentBtn2" data-toggle="modal" data-target="#CommentForm">Add comment</a>
                                                 </td>
                                                 <td>
-                                                    Not agreed<br>
-                                                    <a href="javascript:void(0)" class="btn btn-xs btn-info" id="EditBtn2">Edit</a>
+                                                    <div class="form-group">
+                                                        <div class="custom-control custom-radio" id="AgreedRadioDiv2">
+                                                            <input class="custom-control-input" type="radio" id="AgreedRadio2" name="Radio2">
+                                                            <label for="AgreedRadio2" class="custom-control-label">Agreed</label>
+                                                        </div>
+                                                        <div class="custom-control custom-radio" id="NotAgreedRadioDiv2">
+                                                            <input class="custom-control-input" type="radio" id="NotAgreedRadio2" name="Radio2">
+                                                            <label for="NotAgreedRadio2" class="custom-control-label">Not Agreed</label>
+                                                        </div>
+                                                        <div>
+                                                            <a href="javascript:void(0)" class="btn btn-xs btn-info" id="EditBtn2" style="display: none">Edit</a>
+                                                            <a href="javascript:void(0)" class="btn btn-xs btn-success" id="SaveBtn1">Save</a>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -442,6 +469,22 @@
             });
             $(".modal").modal('hide');
         })
+        $("#EditBtn1").on("click", function(){
+            $("#NotAgreedRadioDiv1").show();
+            $("#AgreedRadioDiv1").show();
+            $("#SaveBtn1").show();
+            $(this).hide();
+        });
+        $("#SaveBtn1").on("click", function(){
+            $("#EditBtn1").show();
+            $(this).hide();
+            if(document.getElementById('AgreedRadio1').checked) {
+                $("#NotAgreedRadioDiv1").hide();
+            }
+            else{
+                $("#AgreedRadioDiv1").hide();
+            }
+        });
     </script>
 </body>
 </html>
